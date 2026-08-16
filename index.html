@@ -27,13 +27,13 @@ body {
 .header {
     background: #172033;
     color: white;
-    padding: 28px 20px;
+    padding: 20px 15px;
     text-align: center;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 500;
 }
 
@@ -41,7 +41,7 @@ body {
 
 .container {
     max-width: 520px;
-    margin: 45px auto;
+    margin: 32px auto;
     padding: 0 16px;
 }
 
@@ -49,7 +49,7 @@ body {
 
 .card {
     background: white;
-    border-radius: 24px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
@@ -58,24 +58,24 @@ body {
 
 .profile {
     text-align: center;
-    padding: 45px 20px 38px;
+    padding: 30px 15px 28px;
 }
 
 /* FOTO */
 
 .profile-photo {
-    width: 190px;
-    height: 190px;
+    width: 150px;
+    height: 150px;
 
     object-fit: cover;
 
     border-radius: 50%;
 
-    border: 6px solid #e9edf3;
+    border: 5px solid #e9edf3;
 
     display: block;
 
-    margin: 0 auto 25px;
+    margin: 0 auto 18px;
 }
 
 /* NAMA */
@@ -83,7 +83,7 @@ body {
 .profile h2 {
     margin: 0;
 
-    font-size: 32px;
+    font-size: 28px;
 
     font-weight: 600;
 
@@ -93,9 +93,9 @@ body {
 /* DEPARTMENT */
 
 .department {
-    margin-top: 8px;
+    margin-top: 6px;
 
-    font-size: 22px;
+    font-size: 19px;
 
     color: #6b7280;
 }
@@ -105,9 +105,9 @@ body {
 .status {
     display: inline-block;
 
-    margin-top: 22px;
+    margin-top: 16px;
 
-    padding: 9px 22px;
+    padding: 7px 20px;
 
     border-radius: 30px;
 
@@ -115,7 +115,7 @@ body {
 
     color: #39734a;
 
-    font-size: 18px;
+    font-size: 16px;
 
     font-weight: 600;
 }
@@ -124,7 +124,7 @@ body {
 
 .details {
     border-top: 1px solid #e5e7eb;
-    padding: 0 34px;
+    padding: 0 28px;
 }
 
 .row {
@@ -132,7 +132,7 @@ body {
 
     align-items: center;
 
-    min-height: 78px;
+    min-height: 68px;
 
     border-bottom: 1px solid #e5e7eb;
 }
@@ -142,21 +142,29 @@ body {
 }
 
 .label {
-    width: 35%;
+    width: 34%;
 
-    font-size: 19px;
+    font-size: 17px;
 
     color: #718096;
+
+    flex-shrink: 0;
 }
 
 .value {
-    width: 65%;
+    width: 66%;
 
-    font-size: 19px;
+    font-size: 17px;
 
     color: #1f2937;
 
-    word-break: break-word;
+    white-space: nowrap;
+}
+
+/* EMAIL */
+
+.email {
+    font-size: 16px;
 }
 
 /* FOOTER */
@@ -164,11 +172,11 @@ body {
 .footer {
     text-align: center;
 
-    margin-top: 28px;
+    margin-top: 22px;
 
     color: #9aa8bb;
 
-    font-size: 17px;
+    font-size: 15px;
 }
 
 
@@ -177,41 +185,87 @@ body {
 @media (max-width: 600px) {
 
     .header {
-        padding: 32px 15px;
+        padding: 20px 10px;
     }
 
     .header h1 {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .container {
-        margin-top: 45px;
+        margin-top: 32px;
+        padding: 0 16px;
     }
 
     .profile {
-        padding: 45px 15px 38px;
+        padding: 30px 10px 28px;
     }
 
     .profile-photo {
-        width: 190px;
-        height: 190px;
+        width: 150px;
+        height: 150px;
     }
 
     .profile h2 {
-        font-size: 31px;
+        font-size: 28px;
     }
 
     .department {
-        font-size: 21px;
+        font-size: 19px;
     }
 
     .details {
-        padding: 0 34px;
+        padding: 0 28px;
     }
 
-    .label,
+    .label {
+        font-size: 17px;
+    }
+
     .value {
+        font-size: 17px;
+    }
+
+    .email {
+        font-size: 15px;
+    }
+
+}
+
+
+/* HP KECIL */
+
+@media (max-width: 400px) {
+
+    .profile-photo {
+        width: 135px;
+        height: 135px;
+    }
+
+    .profile h2 {
+        font-size: 25px;
+    }
+
+    .department {
         font-size: 18px;
+    }
+
+    .details {
+        padding: 0 20px;
+    }
+
+    .label {
+        width: 35%;
+        font-size: 15px;
+    }
+
+    .value {
+        width: 65%;
+        font-size: 15px;
+    }
+
+    .email {
+        font-size: 13px;
     }
 
 }
@@ -317,7 +371,7 @@ body {
             Email
         </div>
 
-        <div class="value">
+        <div class="value email">
             nugrohokuntoaji123@gmail.com
         </div>
 
