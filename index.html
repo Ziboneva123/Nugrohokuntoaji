@@ -64,42 +64,44 @@ body {
 
     overflow-x: hidden;
 
+    /* BACKGROUND BERKEDIP HALUS */
     animation:
-        electronicBackground
-        4s
+        electronicBlink
+        1.8s
         ease-in-out
         infinite;
 }
 
 
 /* =========================================================
-   BACKGROUND PULSE
+   ELECTRONIC BACKGROUND BLINK
 ========================================================= */
 
-@keyframes electronicBackground {
+@keyframes electronicBlink {
 
     0% {
-
-        background-color: #020b18;
-
         filter:
-            brightness(0.90);
+            brightness(0.82);
     }
 
-    50% {
+    25% {
+        filter:
+            brightness(1.02);
+    }
 
-        background-color: #03172c;
+    40% {
+        filter:
+            brightness(0.88);
+    }
 
+    60% {
         filter:
             brightness(1.08);
     }
 
     100% {
-
-        background-color: #020b18;
-
         filter:
-            brightness(0.90);
+            brightness(0.82);
     }
 }
 
@@ -144,20 +146,28 @@ body::before {
     z-index: 0;
 
     animation:
-        gridPulse
-        2.8s
+        gridBlink
+        1.8s
         ease-in-out
         infinite;
 }
 
 
-@keyframes gridPulse {
+@keyframes gridBlink {
 
     0% {
         opacity: 0.25;
     }
 
-    50% {
+    25% {
+        opacity: 0.70;
+    }
+
+    40% {
+        opacity: 0.30;
+    }
+
+    60% {
         opacity: 0.80;
     }
 
@@ -169,7 +179,6 @@ body::before {
 
 /* =========================================================
    ELECTRONIC CIRCUIT
-   SIMETRIS - TIDAK MEMOTONG TENGAH
 ========================================================= */
 
 body::after {
@@ -186,7 +195,8 @@ body::after {
 
     background:
 
-        /* kiri */
+        /* KIRI */
+
         linear-gradient(
             90deg,
             transparent 0%,
@@ -200,7 +210,8 @@ body::after {
             transparent 15.15%
         ),
 
-        /* kanan */
+        /* KANAN */
+
         linear-gradient(
             270deg,
             transparent 0%,
@@ -215,10 +226,12 @@ body::after {
         );
 
     background-size:
+
         100% 180px,
         100% 180px;
 
     background-position:
+
         0 80px,
         0 80px;
 
@@ -226,18 +239,18 @@ body::after {
         repeat-y;
 
     animation:
-        circuitPulse
-        2s
+        circuitBlink
+        1.8s
         ease-in-out
         infinite;
 }
 
 
-@keyframes circuitPulse {
+@keyframes circuitBlink {
 
     0% {
 
-        opacity: 0.20;
+        opacity: 0.18;
 
         filter:
             drop-shadow(
@@ -245,19 +258,39 @@ body::after {
             );
     }
 
-    50% {
+    25% {
 
-        opacity: 0.85;
+        opacity: 0.75;
 
         filter:
             drop-shadow(
-                0 0 10px #00bfff
+                0 0 8px #008cff
+            );
+    }
+
+    40% {
+
+        opacity: 0.22;
+
+        filter:
+            drop-shadow(
+                0 0 3px #008cff
+            );
+    }
+
+    60% {
+
+        opacity: 0.90;
+
+        filter:
+            drop-shadow(
+                0 0 12px #00bfff
             );
     }
 
     100% {
 
-        opacity: 0.20;
+        opacity: 0.18;
 
         filter:
             drop-shadow(
@@ -328,16 +361,32 @@ body::after {
         );
 
     animation:
-        headerPulse
-        2s
+        headerBlink
+        1.8s
         ease-in-out
         infinite;
 }
 
 
-@keyframes headerPulse {
+@keyframes headerBlink {
 
     0% {
+
+        opacity: 0.30;
+
+        box-shadow:
+            0 0 4px #009dff;
+    }
+
+    25% {
+
+        opacity: 0.90;
+
+        box-shadow:
+            0 0 14px #00bfff;
+    }
+
+    40% {
 
         opacity: 0.35;
 
@@ -345,20 +394,20 @@ body::after {
             0 0 5px #009dff;
     }
 
-    50% {
+    60% {
 
         opacity: 1;
 
         box-shadow:
-            0 0 18px #00c8ff;
+            0 0 20px #00c8ff;
     }
 
     100% {
 
-        opacity: 0.35;
+        opacity: 0.30;
 
         box-shadow:
-            0 0 5px #009dff;
+            0 0 4px #009dff;
     }
 }
 
@@ -470,14 +519,14 @@ body::after {
         );
 
     animation:
-        cardLightPulse
-        2.5s
+        cardBlink
+        2s
         ease-in-out
         infinite;
 }
 
 
-@keyframes cardLightPulse {
+@keyframes cardBlink {
 
     0% {
 
@@ -561,14 +610,14 @@ body::after {
         rgba(0, 110, 255, 0.35);
 
     animation:
-        photoPulse
-        2.5s
+        photoBlink
+        2s
         ease-in-out
         infinite;
 }
 
 
-@keyframes photoPulse {
+@keyframes photoBlink {
 
     0% {
 
@@ -576,11 +625,11 @@ body::after {
 
             0 0 0 2px #008cff,
 
-            0 0 10px
-            rgba(0, 170, 255, 0.45),
+            0 0 8px
+            rgba(0, 170, 255, 0.35),
 
-            0 0 20px
-            rgba(0, 110, 255, 0.20);
+            0 0 18px
+            rgba(0, 110, 255, 0.15);
     }
 
     50% {
@@ -602,11 +651,11 @@ body::after {
 
             0 0 0 2px #008cff,
 
-            0 0 10px
-            rgba(0, 170, 255, 0.45),
+            0 0 8px
+            rgba(0, 170, 255, 0.35),
 
-            0 0 20px
-            rgba(0, 110, 255, 0.20);
+            0 0 18px
+            rgba(0, 110, 255, 0.15);
     }
 }
 
@@ -811,14 +860,14 @@ body::after {
     text-transform: uppercase;
 
     animation:
-        hardcorePulse
+        hardcoreBlink
         2s
         ease-in-out
         infinite;
 }
 
 
-@keyframes hardcorePulse {
+@keyframes hardcoreBlink {
 
     0% {
 
