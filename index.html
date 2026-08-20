@@ -2,107 +2,638 @@
 <html lang="id">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
 <title>Employee Information</title>
 
+
 <style>
+
+/* =========================================================
+   BASIC
+========================================================= */
 
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #eef1f5;
-    color: #1f2937;
+html {
+    min-height: 100%;
 }
 
-/* HEADER */
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #eaf6ff;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(0, 153, 255, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(0, 110, 255, 0.12),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(0, 200, 255, 0.10),
+            transparent 30%
+        ),
+
+        #020b18;
+
+    position: relative;
+
+    overflow-x: hidden;
+
+    animation:
+        electronicBackground
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   BACKGROUND PULSE
+========================================================= */
+
+@keyframes electronicBackground {
+
+    0% {
+
+        background-color: #020b18;
+
+        filter:
+            brightness(0.90);
+    }
+
+    50% {
+
+        background-color: #03172c;
+
+        filter:
+            brightness(1.08);
+    }
+
+    100% {
+
+        background-color: #020b18;
+
+        filter:
+            brightness(0.90);
+    }
+}
+
+
+/* =========================================================
+   ELECTRONIC GRID
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0, 140, 255, 0.08) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0, 140, 255, 0.08) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        35px 35px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+
+    z-index: 0;
+
+    animation:
+        gridPulse
+        2.8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes gridPulse {
+
+    0% {
+
+        opacity: 0.25;
+    }
+
+    50% {
+
+        opacity: 0.85;
+    }
+
+    100% {
+
+        opacity: 0.25;
+    }
+}
+
+
+/* =========================================================
+   ELECTRONIC CIRCUIT
+========================================================= */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent 8%,
+            #008cff 8%,
+            #008cff 8.2%,
+            transparent 8.2%,
+            transparent 20%
+        ),
+
+        linear-gradient(
+            90deg,
+            transparent 78%,
+            #00bfff 78%,
+            #00bfff 78.2%,
+            transparent 78.2%
+        );
+
+    background-size:
+
+        100% 180px,
+        100% 240px;
+
+    background-position:
+
+        0 120px,
+        0 450px;
+
+    background-repeat:
+        repeat-y;
+
+    z-index: 0;
+
+    animation:
+        circuitPulse
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes circuitPulse {
+
+    0% {
+
+        opacity: 0.20;
+
+        filter:
+            drop-shadow(
+                0 0 2px #008cff
+            );
+    }
+
+    50% {
+
+        opacity: 0.90;
+
+        filter:
+            drop-shadow(
+                0 0 12px #00bfff
+            );
+    }
+
+    100% {
+
+        opacity: 0.20;
+
+        filter:
+            drop-shadow(
+                0 0 2px #008cff
+            );
+    }
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header {
-    background: #172033;
+
+    position: relative;
+
+    z-index: 2;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #020817,
+            #061a32,
+            #03101f
+        );
+
     color: white;
-    padding: 20px 15px;
+
+    padding: 22px 15px;
+
     text-align: center;
+
+    border-bottom:
+        1px solid
+        rgba(0, 174, 255, 0.55);
+
+    box-shadow:
+        0 0 25px
+        rgba(0, 140, 255, 0.18);
 }
+
+
+.header::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 5%;
+
+    right: 5%;
+
+    bottom: -2px;
+
+    height: 2px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #008cff,
+            #00d9ff,
+            #008cff,
+            transparent
+        );
+
+    animation:
+        headerPulse
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes headerPulse {
+
+    0% {
+
+        opacity: 0.35;
+
+        box-shadow:
+            0 0 5px #009dff;
+    }
+
+    50% {
+
+        opacity: 1;
+
+        box-shadow:
+            0 0 18px #00c8ff;
+    }
+
+    100% {
+
+        opacity: 0.35;
+
+        box-shadow:
+            0 0 5px #009dff;
+    }
+}
+
 
 .header h1 {
+
     margin: 0;
+
     font-size: 28px;
+
     font-weight: 500;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 10px
+        rgba(0, 180, 255, 0.55);
 }
 
-/* CONTAINER */
+
+/* =========================================================
+   CONTAINER
+========================================================= */
 
 .container {
+
+    position: relative;
+
+    z-index: 2;
+
     max-width: 520px;
+
     margin: 32px auto;
+
     padding: 0 16px;
 }
 
-/* CARD */
+
+/* =========================================================
+   CARD
+========================================================= */
 
 .card {
-    background: white;
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(5, 28, 55, 0.96),
+            rgba(2, 16, 34, 0.97)
+        );
+
     border-radius: 20px;
+
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+    border:
+        1px solid
+        rgba(0, 153, 255, 0.55);
+
+    box-shadow:
+
+        0 0 10px
+        rgba(0, 153, 255, 0.20),
+
+        0 0 35px
+        rgba(0, 115, 255, 0.13),
+
+        inset 0 0 35px
+        rgba(0, 140, 255, 0.05);
 }
 
-/* PROFILE */
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 25px;
+
+    right: 25px;
+
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #00bfff,
+            transparent
+        );
+
+    pointer-events: none;
+
+    animation:
+        cardLightPulse
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes cardLightPulse {
+
+    0% {
+
+        opacity: 0.25;
+
+        box-shadow:
+            0 0 3px #00bfff;
+    }
+
+    50% {
+
+        opacity: 1;
+
+        box-shadow:
+            0 0 15px #00bfff;
+    }
+
+    100% {
+
+        opacity: 0.25;
+
+        box-shadow:
+            0 0 3px #00bfff;
+    }
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
 
 .profile {
+
     text-align: center;
+
     padding: 30px 15px 28px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(0, 120, 255, 0.14),
+            transparent 55%
+        );
 }
 
-/* FOTO */
+
+/* =========================================================
+   FOTO
+========================================================= */
 
 .profile-photo {
+
     width: 150px;
+
     height: 150px;
 
     object-fit: cover;
 
     border-radius: 50%;
 
-    border: 5px solid #e9edf3;
+    border:
+        5px solid #07182d;
 
     display: block;
 
     margin: 0 auto 18px;
+
+    box-shadow:
+
+        0 0 0 2px #008cff,
+
+        0 0 15px
+        rgba(0, 170, 255, 0.75),
+
+        0 0 35px
+        rgba(0, 110, 255, 0.35);
+
+    animation:
+        photoPulse
+        2.5s
+        ease-in-out
+        infinite;
 }
 
-/* NAMA */
+
+@keyframes photoPulse {
+
+    0% {
+
+        box-shadow:
+
+            0 0 0 2px #008cff,
+
+            0 0 10px
+            rgba(0, 170, 255, 0.45),
+
+            0 0 20px
+            rgba(0, 110, 255, 0.20);
+    }
+
+    50% {
+
+        box-shadow:
+
+            0 0 0 2px #00d9ff,
+
+            0 0 22px
+            rgba(0, 210, 255, 0.85),
+
+            0 0 45px
+            rgba(0, 110, 255, 0.40);
+    }
+
+    100% {
+
+        box-shadow:
+
+            0 0 0 2px #008cff,
+
+            0 0 10px
+            rgba(0, 170, 255, 0.45),
+
+            0 0 20px
+            rgba(0, 110, 255, 0.20);
+    }
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
 
 .profile h2 {
+
     margin: 0;
 
     font-size: 28px;
 
     font-weight: 600;
 
-    color: #111827;
+    color: #f4fbff;
+
+    text-shadow:
+        0 0 8px
+        rgba(0, 180, 255, 0.25);
 }
 
-/* DEPARTMENT */
+
+/* =========================================================
+   DEPARTMENT
+========================================================= */
 
 .department {
+
     margin-top: 6px;
 
     font-size: 19px;
 
-    color: #6b7280;
+    color: #6fc9ff;
+
+    text-shadow:
+        0 0 8px
+        rgba(0, 174, 255, 0.35);
 }
 
-/* STATUS */
+
+/* =========================================================
+   STATUS
+========================================================= */
 
 .status {
+
     display: inline-block;
 
     margin-top: 16px;
@@ -111,163 +642,313 @@ body {
 
     border-radius: 30px;
 
-    background: #e8f7ec;
+    background:
+        rgba(30, 255, 130, 0.10);
 
-    color: #39734a;
+    border:
+        1px solid
+        rgba(80, 255, 150, 0.65);
+
+    color: #72ff9d;
 
     font-size: 16px;
 
     font-weight: 600;
+
+    box-shadow:
+        0 0 12px
+        rgba(50, 255, 130, 0.20);
 }
 
-/* DETAILS */
+
+/* =========================================================
+   DETAILS
+========================================================= */
 
 .details {
-    border-top: 1px solid #e5e7eb;
+
+    border-top:
+        1px solid
+        rgba(0, 150, 255, 0.30);
+
     padding: 0 28px;
 }
 
+
 .row {
+
     display: flex;
 
     align-items: center;
 
     min-height: 68px;
 
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom:
+        1px solid
+        rgba(0, 150, 255, 0.20);
 }
 
+
 .row:last-child {
+
     border-bottom: none;
 }
 
+
 .label {
+
     width: 34%;
 
     font-size: 17px;
 
-    color: #718096;
+    color: #65b9ee;
 
     flex-shrink: 0;
 }
 
+
 .value {
+
     width: 66%;
 
     font-size: 17px;
 
-    color: #1f2937;
+    color: #edf8ff;
 
     white-space: nowrap;
 }
 
-/* EMAIL */
+
+/* =========================================================
+   EMAIL
+========================================================= */
 
 .email {
+
     font-size: 16px;
 }
 
-/* FOOTER */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .footer {
+
     text-align: center;
 
     margin-top: 22px;
 
-    color: #9aa8bb;
+    color: #4c9ac7;
 
     font-size: 15px;
+
+    text-shadow:
+        0 0 8px
+        rgba(0, 150, 255, 0.30);
 }
 
 
-/* MOBILE */
+/* =========================================================
+   STILL HARDCORE
+========================================================= */
+
+.hardcore {
+
+    margin-top: 10px;
+
+    color: #00c8ff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    animation:
+        hardcorePulse
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes hardcorePulse {
+
+    0% {
+
+        opacity: 0.45;
+
+        text-shadow:
+            0 0 3px
+            rgba(0, 200, 255, 0.25);
+    }
+
+    50% {
+
+        opacity: 1;
+
+        text-shadow:
+
+            0 0 8px
+            rgba(0, 200, 255, 0.85),
+
+            0 0 20px
+            rgba(0, 140, 255, 0.65);
+    }
+
+    100% {
+
+        opacity: 0.45;
+
+        text-shadow:
+            0 0 3px
+            rgba(0, 200, 255, 0.25);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 600px) {
 
     .header {
+
         padding: 20px 10px;
     }
 
     .header h1 {
+
         font-size: 28px;
     }
 
     .container {
+
         margin-top: 32px;
+
         padding: 0 16px;
     }
 
     .profile {
+
         padding: 30px 10px 28px;
     }
 
     .profile-photo {
+
         width: 150px;
+
         height: 150px;
     }
 
     .profile h2 {
+
         font-size: 28px;
     }
 
     .department {
+
         font-size: 19px;
     }
 
     .details {
+
         padding: 0 28px;
     }
 
     .label {
+
         font-size: 17px;
     }
 
     .value {
+
         font-size: 17px;
     }
 
     .email {
+
         font-size: 15px;
     }
-
 }
 
 
-/* HP KECIL */
+/* =========================================================
+   HP KECIL
+========================================================= */
 
 @media (max-width: 400px) {
 
     .profile-photo {
+
         width: 135px;
+
         height: 135px;
     }
 
     .profile h2 {
+
         font-size: 25px;
     }
 
     .department {
+
         font-size: 18px;
     }
 
     .details {
+
         padding: 0 20px;
     }
 
     .label {
+
         width: 35%;
+
         font-size: 15px;
     }
 
     .value {
+
         width: 65%;
+
         font-size: 15px;
     }
 
     .email {
+
         font-size: 13px;
     }
 
+    .hardcore {
+
+        font-size: 12px;
+
+        letter-spacing: 2.5px;
+    }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body,
+    body::before,
+    body::after,
+    .header::before,
+    .card::before,
+    .profile-photo,
+    .hardcore {
+
+        animation: none;
+    }
 }
 
 </style>
@@ -278,7 +959,9 @@ body {
 <body>
 
 
-<!-- HEADER -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="header">
 
@@ -289,14 +972,18 @@ body {
 </header>
 
 
-<!-- CONTENT -->
+<!-- =====================================================
+     CONTENT
+===================================================== -->
 
 <main class="container">
 
 <section class="card">
 
 
-<!-- PROFILE -->
+<!-- =====================================================
+     PROFILE
+===================================================== -->
 
 <div class="profile">
 
@@ -321,7 +1008,9 @@ body {
 </div>
 
 
-<!-- DATA -->
+<!-- =====================================================
+     DATA
+===================================================== -->
 
 <div class="details">
 
@@ -384,8 +1073,20 @@ body {
 </section>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <div class="footer">
-    Employee Identification System
+
+    <div>
+        Employee Identification System
+    </div>
+
+    <div class="hardcore">
+        Still Hardcore
+    </div>
+
 </div>
 
 
